@@ -19,3 +19,13 @@ td.ver{vertical-align:middle!important;}
 input[name='extitle']{font-weight:bold; font-size:1.1em;}
 textarea{width:100%; outline:0; border:0; border-bottom:1px solid #c2c2c2;}
 .line{margin:20px 0px;}
+.form_wrap{
+	width:100%; padding:5%;
+	max-height:520px;
+	margin:20px 0px;
+	border: 1px solid #ccc;
+	border-radius:10px;
+}
+.form_wrap:hover{
+	box-shadow:0px 0px 5px 2px #ccc;
+}
