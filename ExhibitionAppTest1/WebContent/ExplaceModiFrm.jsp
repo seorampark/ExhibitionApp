@@ -8,7 +8,7 @@
 <%
 	String codes = request.getParameter("CodeChk");
 	String placename = "";
-	location = "";
+	String rslocation = "";
 	String contactno = "";
 	String times = "";
 	String holiday = "";
@@ -22,7 +22,7 @@
 	if(rs.next()){
 		do{
 			placename = rs.getString("placename");
-			location = rs.getString("location");
+			rslocation = rs.getString("location");
 			contactno = rs.getString("contactno");
 			times = rs.getString("times");
 			holiday = rs.getString("holiday");		
@@ -34,8 +34,7 @@
 	<table class="table table-response table-stripe">
 		<tr>
 			<th>전시관 코드(수정불가)</th>
-			<td><input type="text" class="form-control" value="<%=codes %>" disabled/></td>
-			<td><input type="hidden" class="form-control" value="<%=codes %>" name="codes"/></td>
+			<td><p class="text-danger text-middle"><%=codes %></p><input type="hidden" class="form-control" value="<%=codes %>" name="codes"/></td>
 		</tr>
 		<tr>
 			<th>전시관 이름</th>
@@ -43,8 +42,8 @@
 		</tr>
 		<tr>
 			<th>위치(수정불가)</th>
-			<td><input type="text" class="form-control" value="<%=location %>" disabled/></td>
-			<td><input type="hidden" class="form-control" value="<%=location %>" name="location" /></td>
+			<td><input type="text" class="form-control" value="<%=rslocation %>" disabled/></td>
+			<td><input type="hidden" class="form-control" value="<%=rslocation %>" name="location" /></td>
 		</tr>
 		<tr>
 			<th>연락처</th>
@@ -53,8 +52,11 @@
 		<tr>
 			<th>개관시간</th>
 			<td>
-			<input type="text" class="form-control" value="<%=times.substring(1,3)%>" name="times" /> 		시 부터
-			<input type="text" class="form-control" value="<%=times.substring(4,6)%>" name="times" /> 		시 까지
+			<h4 class="text-primary">현재 운영 시간 : <%out.println(times.substring(1,3) + " 시 ~ " + times.substring(4,6) + " 까지 "); %></h4>
+			<div class="form-group form-inline">
+			OPEN : <input type="text" class="form-inline form-control" value="<%=times.substring(1,3)%>" name="n1" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			CLOSE : <input type="text" class="form-inline form-control" value="<%=times.substring(4,6)%>" name="n2" />
+			</div>
 			</td>
 		</tr>
 		<tr>
